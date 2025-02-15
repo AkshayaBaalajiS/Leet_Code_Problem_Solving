@@ -96,3 +96,25 @@ public:
         return size;
     }
 };
+
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int size=nums.size();
+        for(int i=0;i<size-1;)
+        {
+            int temp = i+1 ;
+            if(nums[i]==nums[temp])
+            {
+                nums.erase(nums.begin()+i);
+                size--;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return size;
+    }
+};
