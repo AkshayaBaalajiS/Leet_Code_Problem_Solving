@@ -1,0 +1,51 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        // stoi is out of range for the string to long 
+        // int number_1 = stoi (a,nullptr,2);
+        // int number_2 = stoi (b,nullptr,2);
+        __uint128_t number = 0 ;
+        for(int i =a.size()-1 ,j=0;i>=0;i--,j++)
+        {  
+           if(a[i]=='1')
+           {
+                number =  number + pow(2,j);
+                // cout<<"number = " << number <<endl;
+           } 
+        }
+        cout<<endl;
+        // number.print();
+        // cout<<"Number 1 " << number<<"<----------\n";
+        
+        __uint128_t number_1 = 0 ;
+        for(int i =b.size()-1 ,j=0;i>=0;i--,j++)
+        {  
+           if(b[i]=='1')
+           {
+                number_1 =  number_1 + pow(2,j);
+           } 
+        }
+
+        long long number_3 = number+number_1 ;
+        // cout<<"Number 2 : " << number_1 <<endl ;
+        string result="";
+        // cout<<"Number 3 " << number_3<<"<----------\n";
+        
+
+        if(number_3!=0)
+        {
+            while(number_3!=0)
+            {
+                int rem = number_3%2 ;
+                result = to_string(rem) + result ; 
+                number_3=number_3/2;
+            }
+        }
+        else
+        {
+            result=to_string(number_3);
+        }
+
+        return result ;
+    }
+};
