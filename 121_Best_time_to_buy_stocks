@@ -1,0 +1,186 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int size=prices.size();
+        vector<int> another_vec; 
+        int temp =0 ;
+        int max_value = 0 ;
+        for(int i=0;i<size-1;i++)
+        {
+            for(int j=i+1;j<size;j++)
+            {
+                temp = prices[j] - prices[i]; 
+                if(temp>0 )
+                {
+                    if(temp>max_value)
+                    {
+                        max_value= temp;
+                    }
+                }
+            }
+        }
+
+        return max_value ;
+    }
+};
+
+
+// way 4 time limt issue
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int size=prices.size();
+//         int temp =0 ;
+//         int max_value = 0 ;
+//         vector<int> price_temp ;
+//         cout<<"Size = " << size <<endl;
+//         if(size>2)
+//         {
+//             for(int i=0;i<size-1;i++)
+//             {
+//                 int max_ele = *max_element(prices.begin()+i+1,prices.end());
+//                 temp =   max_ele - prices[i]; 
+//                 if(temp>0 && temp>max_value)
+//                 {
+//                     cout<<"tmep =" << temp <<"++++++++"<<endl;
+//                     max_value= temp;
+//                 }
+//             }
+//         }
+//         else if (size ==2 )
+//         {
+//             int temo = prices[1] - prices[0];
+//             if(temo>0)
+//             {
+//                 max_value=temo;
+//             } 
+//             else
+//             {
+//                 max_value=0;
+//             }
+//         }
+//         else
+//         {
+//             max_value=0;
+//         }
+
+//         return max_value ;
+//     }
+// };
+// waqy 3 time limit exceed 
+// bool func(int a , int b)
+// {
+//     return (a>b? true: false);
+// }
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int size=prices.size();
+//         int temp =0 ;
+//         int max_value = 0 ;
+//         vector<int> price_temp ;
+//         cout<<"Size = " << size <<endl;
+//         if(size>1)
+//         {
+//             for(int i=0;i<size;i++)
+//             {
+//                 price_temp.insert(price_temp.begin(), prices.begin()+i+1,prices.end());
+//                 sort(price_temp.begin(),price_temp.end(),func);
+//                 for(int i :  price_temp )
+//                 {
+//                     cout<< i << "   " ;
+//                 }
+//                 cout<<endl;
+//                 temp =   price_temp[0] - prices[i]; 
+//                 cout<<"  price_temp[0] = "<<  price_temp[0] << "----"<<prices[i]<<endl; 
+//                 if(temp>0 )
+//                 {
+//                     if(temp>0 && temp>max_value)
+//                     {
+//                         cout<<"tmep =" << temp <<"++++++++"<<endl;
+//                         max_value= temp;
+//                     }
+//                 }
+//                 price_temp.clear();
+                
+//             }
+//         }
+//         else
+//         {
+//             max_value= 0;
+//         }
+
+//         return max_value ;
+//     }
+// };
+// way 3 
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int size=prices.size();
+//         vector<int> another_vec; 
+//         int temp =0 ;
+//         int max_value = 0 ;
+//         for(int i=0;i<size-1;i++)
+//         {
+//             for(int j=i+1;j<size;j++)
+//             {
+//                 temp = prices[j] - prices[i]; 
+//                 if(temp>0 )
+//                 {
+//                     if(temp>max_value)
+//                     {
+//                         max_value= temp;
+//                     }
+//                 }
+//             }
+//         }
+
+//         return max_value ;
+//     }
+// };
+
+// way 1 : but time limit exceed 
+// class Solution {
+// public:
+//     int maxProfit(vector<int>& prices) {
+//         int size=prices.size();
+//         vector<int> another_vec; 
+//         int temp =0 ;
+//         // int max_value = 0 ;
+//         for(int i=0;i<size-1;i++)
+//         {
+//             for(int j=i+1;j<size;j++)
+//             {
+//                 temp = prices[j] - prices[i]; 
+//                 if(temp>0 )
+//                 {
+//                     if(!another_vec.empty())
+//                     {
+//                         int tmep=another_vec.front(); 
+//                         if(temp>tmep)
+//                         {
+//                             another_vec.erase(another_vec.begin());
+//                             another_vec.push_back(temp);
+//                         }
+//                     }
+//                     else
+//                     {
+//                         another_vec.push_back(temp);
+//                     }
+//                 }
+//             }
+//         }
+
+//         int tee = 0;
+//         if(another_vec.empty())
+//         {
+//             tee=0;
+//         }
+//         else
+//         {
+//             tee=another_vec[0];
+//         }
+//         return tee ;
+//     }
+// };
