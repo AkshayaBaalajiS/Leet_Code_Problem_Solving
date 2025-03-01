@@ -1,20 +1,18 @@
-/*
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
-You can return the answer in any order.
-
- 
-
-Example 1:
-
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-
-
-leetcode way  :  
-
-Way 1  :  80ms 
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+My first thought is to iterate and find which two number addition will give result as 7  
+# Approach
+<!-- Describe your approach to solving the problem. -->
+If the sum of 2 is 7 I ush back the index of i and j to the vector 
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+135 ms
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+14.06 Mb
+# Code
+```cpp []
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -23,23 +21,47 @@ public:
         {
             for(int j=i+1;j<nums.size();j++)
             {
-                if(nums[i] + nums[j] == target)
+                if(nums.at(i) + nums.at(j) == target) // 332 ms 
+                // if(nums[i] + nums[j]== target) // 146 ms 
                 {
                     vec.push_back(i);
                     vec.push_back(j);
-                    break;
                 }
                 else
                 {
                     continue;
                 }
             }
+            
         }
         return vec;
     }
 };
 
-
+// class Solution {
+// public:
+//     vector<int> twoSum(vector<int>& nums, int target) {
+//         vector <int> vec ;
+//         for(int i=0;i<nums.size()-1;i++)
+//         {
+//             for(int j=i+1;j<nums.size();j++)
+//             {
+//                 if(nums[i] + nums[j] == target)
+//                 {
+//                     vec.push_back(i);
+//                     vec.push_back(j);
+//                     break;
+//                 }
+//                 else
+//                 {
+//                     continue;
+//                 }
+//             }
+//         }
+//         return vec;
+//     }
+// };
+```
 way 2 : 
 
 class Solution {

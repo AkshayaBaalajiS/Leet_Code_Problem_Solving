@@ -1,3 +1,18 @@
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+My first thought is to find the whether the number is <=9 and and it is not a negative number 
+# Approach
+<!-- Describe your approach to solving the problem. -->
+Else we can do the %10 logic to get the reverse and check same or not 
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+0 ms 
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+8.57 Mb
+# Code
+```cpp []
 class Solution {
 public:
     bool isPalindrome(int x) {
@@ -53,3 +68,4 @@ public:
         }
     }
 };
+```
